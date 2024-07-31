@@ -1,0 +1,126 @@
+<div class="login-content">
+    <div class="login-box text-center">
+        <img src="assets/images/logo.svg" alt="logo" class="img-fluid">
+
+       <div class="form-box">
+        <div class="form-group">
+            <!-- <span class="inplabel">Username</span> -->
+            <input type="text" class="form-control username" placeholder="Username" [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+            <!-- <span class="inplabel">Password</span> -->
+            <input type="password" class="form-control password" placeholder="Password" [(ngModel)]="password">
+        </div>
+        <div class="action-rem">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check" for="rememberMe">Remember me</label>
+                </div>
+                <a class="forgot-password" (click)="OpenOtpModal(OTP)">Forgot password?</a>
+        </div>
+
+        <div class="mt-3">
+            <button class="btn btn-submit" (click)="login()">Login</button>
+        </div>
+       </div>
+    </div>
+</div>
+
+
+<ng-template #OTP>
+    <div id="myModal">
+        <div class="home-content">
+            <div class="col-sm-2 d-flex justify-content-end">
+                <button type="button" (click)="closeModal()" class="btn-close delteClose">X</button>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 p-0-3-0-2">
+                    <div class="form-container">
+                    <h2 class="text-white">Forget Password</h2>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="subject" placeholder="Enter Subject" [(ngModel)]="email" class="form-control1" />
+                        </div>
+                        <div class="btn-container">
+                            <div style="display: flex;">
+                                <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                                <button class="btn btn-save"(click)="generateOtp(verify)">Generate</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #verify>
+    <div class="">
+        <div class="home-content">
+            <div class="col-sm-2 d-flex justify-content-end">
+                <button type="button" (click)="closeModal()" class="btn-close delteClose">X</button>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 p-0-3-0-2">
+                    <div class="form-container">
+                        <h2 class="text-white">Verification Code</h2>
+                        <div class="form-group">
+                        <label for="" >Please enter the code sent to your Email <strong>{{email}} </strong></label>
+                        </div>
+                        <div class="form-group">
+                            <label>OTP</label>
+                            <input type="number" class="subject" placeholder="Enter OTP" [(ngModel)]="otp" class="form-control1" />
+                        </div>
+                        <div class="btn-container">
+                            <div style="display: flex;">
+                                <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                                <button class="btn btn-save"(click)="verifyOtp(resetPwd)">Verify</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #resetPwd>
+    <div class="">
+        <div class="home-content">
+            <div class="col-sm-2 d-flex justify-content-end">
+                <button type="button" (click)="closeModal()" class="btn-close delteClose">X</button>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 p-0-3-0-2">
+                    <div class="form-container">
+                    <h2 class="text-white">Create New Password</h2>
+
+                        <div class="form-group">
+                            <label for="">New Password</label>
+                            <input type="password" class="form-control password" placeholder="Password" [(ngModel)]="newpassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="password" class="form-control password" placeholder="Password" [(ngModel)]="confirmPassword" (keyup)="resetpwdErr()" >
+                            <span class="error-msg" *ngIf="confirmPwdErr">Passwords do not march</span>
+                        </div>
+                        <div class="btn-container">
+                            <div style="display: flex;">
+                                <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                                <button class="btn btn-save"(click)="resetPassword()">Reset</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

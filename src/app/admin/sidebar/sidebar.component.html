@@ -1,0 +1,46 @@
+<div class="admin-container">
+    <div class="wrapper">
+        <div class="left-side-container">
+            <div class="logo-cont">
+                <a>
+                    <img src="assets/images/logo.svg" alt="logo">
+                </a>
+            </div>
+            <div class="menu-container">
+                <ul>
+                    <li class="active" (click)="goTo('/admin/app/dashboard')">
+                        <a>
+                            <i class="fa-solid fa-house"></i>
+                            <span class="ml-4">Dashboard</span>
+                        </a>
+                       </li>
+
+                       <!-- <li (click)="goTo('/admin/app/upload')">
+                        <a >
+                            <i class="fa-solid fa-file"></i>
+                            <span class="ml-4">Add Data</span>
+                        </a>
+                       </li> -->
+
+                       
+                       <li (click)="goTo('/admin/app/eventmaster')">
+                       <a >
+                        <i class="fa-brands fa-elementor"></i>
+                           <span class="ml-4">Events</span>
+                       </a>
+                      </li>
+                      <li (click)="goTo('/admin/app/emailreminder')">
+                        <a >
+                         <i class="fa-brands fa-elementor"></i>
+                            <span class="ml-4">Email Reminder</span>
+                        </a>
+                       </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-side-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
